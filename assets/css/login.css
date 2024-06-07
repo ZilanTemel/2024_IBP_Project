@@ -1,0 +1,117 @@
+/* CSS for form */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #fff; /* Sayfa arka plan rengi */
+}
+
+.container {
+    background: #fff;
+    width: 450px;
+    padding: 1.5rem;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1.3rem;
+    margin-bottom: 0.4rem;
+}
+
+.input-group {
+    margin: 1rem 0;
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    color: #757575;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+input {
+    color: inherit;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #757575;
+    padding: 0.75rem 2rem 0.75rem 2.5rem;
+    border-radius: 25px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    background-color: transparent;
+    outline: none;
+    border-color: rgb(16, 113, 137);
+}
+
+input::placeholder {
+    color: #757575;
+}
+
+label {
+    color: #757575;
+    position: absolute;
+    left: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: 0.3s ease all;
+    font-size: 0.75rem;
+    opacity: 0;
+}
+
+input:focus~label,
+input:not(:placeholder-shown)~label {
+    top: 0;
+    transform: translateY(-100%);
+    font-size: 0.75rem;
+    opacity: 1;
+    color: rgb(16, 113, 137);
+}
+
+.btn {
+    font-size: 1.1rem;
+    padding: 10px 0;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    width: 100%;
+    background: rgb(173, 20, 158);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: rgb(140, 16, 127);
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.link a {
+    color: rgb(6, 218, 179);
+    text-decoration: none;
+}
+
+.link a:hover {
+    color: blue;
+    text-decoration: underline;
+}

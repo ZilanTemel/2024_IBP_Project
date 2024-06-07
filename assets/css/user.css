@@ -1,0 +1,140 @@
+/* Genel Stil */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Menü öğelerini sağa ve sola yasla */
+    align-items: center;
+    background-color: rgb(119, 29, 204);
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.navbar .nav-links a:hover {
+    text-decoration: underline;
+}
+
+.navbar .search-box {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .search-box form {
+    display: flex;
+    width: 100%;
+}
+
+.navbar .search-box input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    box-sizing: border-box;
+}
+
+.navbar .search-box button {
+    padding: 10px 15px;
+    background: rgb(92, 4, 79);
+    color: white;
+    cursor: pointer;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar .search-box button:hover {
+    background-color: rgb(62, 2, 52);
+}
+
+.event-info {
+    margin-bottom: 20px;
+}
+
+.ticket-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ticket-info ul li {
+    margin: 5px 0;
+}
+
+.buy-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(119, 29, 204);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.buy-button:hover {
+    background-color: rgb(92, 4, 79);
+}
+
+/* Slider Stilleri */
+.slider-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+}
+
+.gallery::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery .item {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    width: 200px;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+}
+
+.gallery .item img {
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gallery .item p {
+    text-align: center;
+    color: #666;
+    margin-top: 5px;
+}
