@@ -1,13 +1,13 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #ffffff; /* Beyaz arka plan rengi */
+    background-color: #ffffff; 
     margin: 0;
     padding: 0;
-    color: #333; /* Daha uyumlu bir yazı rengi */
+    color: #333;
 }
 
 .navbar {
-    background-color: #1a17b6; /* Daha uyumlu bir mor ton */
+    background-color: #1a17b6; 
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -62,7 +62,7 @@ body {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-    color: #333; /* Daha uyumlu bir yazı rengi */
+    color: #333; 
 }
 
 .table th {
@@ -75,7 +75,7 @@ body {
 }
 
 .table a {
-    color: #007bff; /* Daha uyumlu bir link rengi */
+    color: #007bff; 
     text-decoration: none;
 }
 
@@ -101,7 +101,7 @@ body {
     box-sizing: border-box;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #fff; /* Arka plan rengi */
+    background-color: #fff; 
 }
 
 .form-group input[type="submit"] {

@@ -8,6 +8,7 @@ class Auth extends CI_Controller {
         $this->load->model('auth_model');
         $this->load->model('fileUser');
         $this->load->model('Message_model'); // Message_model'i yükleyin
+       
     }
 
     public function index() {
@@ -94,6 +95,9 @@ class Auth extends CI_Controller {
         }
         $data['files'] = $this->file->getRows();
         $data['statusMsg'] = $statusMsg;
+
+        $data['messages'] = $this->Message_model->get_messages_with_users();
+     
         $this->load->view('Auth/adminPage', $data);
     }
 
@@ -164,7 +168,9 @@ class Auth extends CI_Controller {
     }
 
 
-
+     
+    
+    //message 
     public function sendMessage() {
         $sender_id = $this->session->userdata('user_id');
         

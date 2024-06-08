@@ -9,29 +9,29 @@
 <body>
 <div class="navbar">
     <div class="nav-links">
-        <a href="<?php echo base_url('Auth/logout'); ?>" class="logout-button">Logout</a>
-        <a href="<?php echo base_url('Auth/userManagement'); ?>" class="user-management-button">User Management</a>
+        <a href="<?php echo base_url('Auth/logout'); ?>" class="logout-button">ÇIKIŞ</a>
+        <a href="<?php echo base_url('Auth/userManagement'); ?>" class="user-management-button">KULLANICI YÖNETİM PANELİ</a>
     </div>
     <div class="search-box">
         <form method="post" action="<?php echo base_url('Auth/searchAdmin'); ?>">
             <input type="text" name="search" placeholder="Search...">
-            <button type="submit">Search</button>
+            <button type="submit">ARAMA</button>
         </form>
     </div>
 </div>
 <div class="container">
     <div class="upload-div">
-        <h3>Upload Multiple Files And Images</h3>
+        <h3>ADMİN DUYURU YÜKLEME ALANI</h3>
         <!-- display status text -->
         <?php echo !empty($statusMsg) ? '<p class="status-msg">' . $statusMsg . '</p>' : ''; ?>
         <!-- file upload form  -->
         <form method="post" action="" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="Choose Files">Choose Files</label>
+                <label for="Choose Files"></label>
                 <input type="file" class="form-control" name="files[]" id="files" multiple>
             </div>
             <div class="form-group">
-                <label for="File Titles">File Titles (comma separated)</label>
+                <label for="File Titles">Duyuru başlığı</label>
                 <input type="text" class="form-control" name="titles" id="titles" placeholder="Title1, Title2, ...">
             </div>
             <div class="form-group">
@@ -39,15 +39,16 @@
             </div>
         </form>
         <div class="row">
-            <h3>Uploaded Files/Images</h3>
+            <h3>DUYURU YÜKLE</h3>
             <ul class="gallery">
                 <?php if(!empty($files)) {
                     foreach($files as $file) { ?>
                         <li class="item">
                             <img src="<?php echo base_url('uploads/files/'.$file['file_name']); ?>" alt="">
                             <p><?php echo !empty($file['title']) ? $file['title'] : 'No Title'; ?></p>
-                            <p>Uploaded On <?php echo date("j M Y", strtotime($file['uploaded_on'])); ?></p>
-                            <a class="delete-button" href="<?php echo base_url('auth/deleteFile/'.$file['id']); ?>" onclick="return confirm('Are you sure you want to delete this file?');">Delete</a>
+                            <p>Şu tarihte yüklendi <?php echo date("j M Y", strtotime($file['uploaded_on'])); ?></p>
+                            <!-- Her bir duyurunun silme bağlantısını sadece o duyuruyu silmek için özelleştiriyoruz -->
+                            <a class="delete-button" href="<?php echo base_url('auth/deleteFile/'.$file['id']); ?>" onclick="return confirm('Bu dosyayı silmek istediğinizden emin misiniz?');">SİL</a>
                         </li>
                 <?php } } else { ?>
                     <p>File(s) not found...</p>
@@ -56,25 +57,21 @@
         </div>
     </div>
 
-    <!-- Message Inbox Section -->
     <div class="inbox-div">
-        <h3>Inbox</h3>
-        <?php if (!empty($messages)) { ?>
-            <ul class="list-group">
-                <?php foreach ($messages as $message) { ?>
-                    <li class="list-group-item <?php echo $message['is_read'] ? '' : 'list-group-item-info'; ?>">
-                        <p><?php echo $message['message']; ?></p>
-                        <small>Sent on <?php echo date("j M Y, g:i a", strtotime($message['created_at'])); ?></small>
-                        <?php if (!$message['is_read']) { ?>
-                            <a href="<?php echo base_url('Messages/markAsRead/'.$message['id']); ?>" class="btn btn-sm btn-primary">Mark as Read</a>
-                        <?php } ?>
-                    </li>
-                <?php } ?>
-            </ul>
-        <?php } else { ?>
-            <p>No messages found...</p>
-        <?php } ?>
-    </div>
+    <h3>Mesaj kutusu</h3>
+    <?php if (!empty($messages)) { ?>
+        <ul class="list-group">
+            <?php foreach ($messages as $message) { ?>
+                <li class="list-group-item <?php echo $message['is_read'] ? '' : 'list-group-item-info'; ?>">
+                    <p><strong><?php echo $message['sender_name']; ?>:</strong> <?php echo $message['message']; ?></p>
+                    <small>GÖNDERİLDİ </small>
+                   
+                </li>
+            <?php } ?>
+        </ul>
+    <?php } else { ?>
+        <p>No messages found...</p>
+    <?php } ?>
 </div>
 </body>
 </html>

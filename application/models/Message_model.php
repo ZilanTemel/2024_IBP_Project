@@ -21,7 +21,7 @@
 
 
 
-
+/*
 class Message_model extends CI_Model {
     public function __construct() {
         $this->load->database();
@@ -50,9 +50,25 @@ class Message_model extends CI_Model {
         $this->db->where('id', $message_id);
         return $this->db->update('messages', array('is_read' => TRUE));
     }
+}*/
+
+class Message_model extends CI_Model {
+    public function __construct() {
+        parent::__construct();
+        $this->load->database();
+    }
+
+    public function get_messages_with_users() {
+        $this->db->select('messages.*, user_form.name as sender_name');
+        $this->db->from('messages');
+        $this->db->join('user_form', 'messages.sender_id = user_form.id');
+        $this->db->order_by('messages.created_at', 'DESC');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }
 
 
-?>
 
+?>
 
